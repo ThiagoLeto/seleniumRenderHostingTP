@@ -1,17 +1,17 @@
-from node:18.15.0
+FROM node:18
+
+RUN mkdir -p /dist/angular-app
 
 WORKDIR /dist/angular-app
 
-COPY package*.json ./
+COPY . /dist/angular-app
 
-RUN npm install
+RUN npm ci
 
-RUN npm i angular
+RUN npm run build
 
-RUN npm install @angular/cli@15.2.9
+EXPOSE 80 
 
-COPY . .
+ENV PORT 80
 
-EXPOSE 4200
-
-CMD ["ng","serve"]
+CMD [ "ng", "build", "--prod" ]
