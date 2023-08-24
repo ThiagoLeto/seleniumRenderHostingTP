@@ -1,6 +1,6 @@
 from node:18.15.0
 
-WORKDIR /user/src/app/
+WORKDIR /dist/angular-app
 
 COPY package*.json ./
 
