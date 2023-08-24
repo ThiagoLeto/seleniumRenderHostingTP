@@ -6,6 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm i angular
+
 RUN npm install @angular/cli@15.2.9
 
 COPY . .
