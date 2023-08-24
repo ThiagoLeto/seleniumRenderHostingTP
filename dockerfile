@@ -1,17 +1,9 @@
 FROM node:18
-
-RUN mkdir -p /app
-
 WORKDIR /app
+COPY package*.json ./
+RUN npm install
 
-COPY . /app
-
-RUN npm ci
-
+COPY . .
 RUN npm run build
-
-EXPOSE 4200 
-
-ENV PORT 4200
-
-CMD [ "ng", "build", "--prod" ]
+EXPOSE 80
+CMD ["npm","start"]
