@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +12,6 @@ export class LoginComponent implements OnInit {
   formLogin: FormGroup;
 
   constructor(
-    private authService: AuthService,
     private router: Router
   ) {
     this.formLogin = new FormGroup({
@@ -24,17 +22,15 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  menu(){
+    const emailValue = this.formLogin.get('email')?.value;
+    const passwordValue = this.formLogin.get('password')?.value;
 
-  onSubmit() {
-    this.authService.login(this.formLogin.value)
-      .then(response => {
-        console.log(response);
-        this.router.navigate(['/menu']);
-      })
-      .catch(error => console.log(error));
-  }
-
-  register(){
-    this.router.navigate(['/register']);
+    if (emailValue && passwordValue) {
+      this.router.navigate(['/menu']);
+    }
+    else{
+      alert("Ingrese sus datos")
+    }
   }
 }

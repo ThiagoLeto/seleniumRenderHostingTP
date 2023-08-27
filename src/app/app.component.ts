@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +8,12 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   constructor(
-    private authService: AuthService,
     private router: Router
   ) {}
 
   title = 'angularApp';
-  onClick() { 
-    this.authService.logout()
-      .then(() => {
-        this.router.navigate(['/register']);
-      })
-      .catch(error => console.log(error));
+
+  logout(){
+    this.router.navigate(['/login']);
   }
 }
