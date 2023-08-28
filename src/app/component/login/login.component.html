@@ -2,11 +2,11 @@
     <form class="formulario"style="margin-top: 15%;" [formGroup]="formLogin" (ngSubmit)="menu()">
         <h2 class="titulo">Login de <span class="color-usuario">usuario</span></h2>
         <div class="email, input">
-            <input type="text" formControlName="email" placeholder="Email...">
+            <input id="email" type="text" formControlName="email" placeholder="Email...">
         </div>
         <div class="contraseña, input">
-            <input type="password" formControlName="password"  placeholder="Contraseña...">
+            <input id="contrasena" type="password" formControlName="password"  placeholder="Contraseña...">
         </div>
-        <input class="button" type="submit" value="Enviar">
+        <input id="botonEnviar" class="button" type="submit" value="Enviar">
     </form>
 </div>
