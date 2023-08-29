@@ -9,10 +9,6 @@ platforms:
     osVersion: 10
     browserName: Firefox
     browserVersion: 102.0
-  - os: OS X
-    osVersion: Big Sur
-    browserName: Safari
-    browserVersion: 14.1
 browserstackLocal: true
 buildName: browserstack-build-1
 projectName: BrowserStack Sample
