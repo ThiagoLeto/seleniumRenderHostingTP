@@ -35,9 +35,6 @@ jobs:
 
     - name: Setup dev server
       run: npm run start &
-
-    - name: Wait for dev server
-      run: 'npx wait-on --timeout 120000 http://localhost:4200/' 
     
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v4
