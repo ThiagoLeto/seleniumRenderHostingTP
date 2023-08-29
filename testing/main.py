@@ -139,7 +139,7 @@ sleep(0.5)
 Alert(driver).accept()
 sleep(1.5)
 
-driver.find_element(by=By.ID, value='botonlogout').click()
+#driver.find_element(by=By.ID, value='botonlogout').click()
 
 sleep(2)
 
