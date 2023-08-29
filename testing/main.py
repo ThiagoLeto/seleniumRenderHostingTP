@@ -5,14 +5,30 @@ from selenium.webdriver.common.by import By
 from time import sleep
 from selenium.webdriver.common.alert import Alert
 
-def wait(driver,amount:float):
+bstack_options = {
+    "os" : "Windows",
+    "osVersion" : "10",
+    "buildName" : "BStack Build Name: ",
+    "projectName" : "BStack Project Name: ",
+    "seleniumVersion" : "4.0.0",
+    "userName": "thiagolett_EgXBPU",
+    "accessKey": "nM3mL2Vbte2SEovfPXXo"
+}
+
+
+def wait(driver:webdriver.Chrome,amount:float):
     driver.implicitly_wait(amount)
     sleep(amount)
 
+web = "https://pruscitest.onrender.com/"
+options = webdriver.ChromeOptions()
+options.set_capability('bstack:options', bstack_options)
+driver = webdriver.Remote(
+command_executor="https://hub.browserstack.com/wd/hub",
+options=options)
 
-driver = webdriver.Chrome()
-wait(driver,1)
 driver.get('http://localhost:4200/login')
+wait(driver,1)
 
 inputEmail = driver.find_element(by=By.ID,value="email")
 inputPassword = driver.find_element(by=By.ID, value="contrasena")
