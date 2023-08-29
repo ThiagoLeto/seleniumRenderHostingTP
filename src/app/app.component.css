@@ -1,0 +1,17 @@
+#navbar{
+    width: 101%;
+    background-color: #1b1b1b;
+    height: 37px;
+    margin-top: 0;
+}   
+
+.botonLogout{
+    padding: 10px;
+    background-color: #1b1b1b;
+    color: azure;
+    position: absolute;
+    border: none;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
