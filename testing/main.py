@@ -81,15 +81,28 @@ from selenium.webdriver.common.by import By
 from time import sleep
 from selenium.webdriver.common.alert import Alert
 
-def wait(driver,amount:float):
-    driver.implicitly_wait(amount)
-    sleep(amount)
+bstack_options = {
+    "os" : "Windows",
+    "osVersion" : "10",
+    "buildName" : "BStack Build Name: ",
+    "projectName" : "BStack Project Name: ",
+    "seleniumVersion" : "4.0.0",
+    "userName": "thiagolett_EgXBPU",
+    "accessKey": "nM3mL2Vbte2SEovfPXXo"
+}
 
-sleep(100)
 
-driver = webdriver.Chrome()
-wait(driver,1)
-driver.get('http://localhost:4200/login')
+sleep(3)
+
+options = webdriver.ChromeOptions()
+options.set_capability('bstack:options', bstack_options)
+driver = webdriver.Remote(
+command_executor="https://hub.browserstack.com/wd/hub",
+options=options)
+
+driver.get('https://sleniumhostins.onrender.com')
+
+driver.implicitly_wait(10)
 
 inputEmail = driver.find_element(by=By.ID,value="email")
 inputPassword = driver.find_element(by=By.ID, value="contrasena")
@@ -126,7 +139,7 @@ sleep(0.5)
 Alert(driver).accept()
 sleep(1.5)
 
-driver.find_element(by=By.CLASS_NAME, value='botonLogout').click()
+driver.find_element(by=By.ID, value='botonlogout').click()
 
 sleep(2)
 
