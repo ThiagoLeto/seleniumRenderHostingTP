@@ -20,6 +20,8 @@ def wait(driver:webdriver.Chrome,amount:float):
     driver.implicitly_wait(amount)
     sleep(amount)
 
+sleep(20)
+
 web = "https://pruscitest.onrender.com/"
 options = webdriver.ChromeOptions()
 options.set_capability('bstack:options', bstack_options)
