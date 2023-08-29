@@ -18,7 +18,7 @@ export class MenuComponent implements OnInit {
 
 
   ngOnInit(): void {}
-  onSubmit(){
+  OnSbmt(){
       alert("Tus datos se han enviado")
   }
 }
