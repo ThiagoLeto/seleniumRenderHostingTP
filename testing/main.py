@@ -85,6 +85,7 @@ def wait(driver,amount:float):
     driver.implicitly_wait(amount)
     sleep(amount)
 
+sleep(100)
 
 driver = webdriver.Chrome()
 wait(driver,1)
